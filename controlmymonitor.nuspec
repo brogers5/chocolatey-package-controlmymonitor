@@ -13,7 +13,7 @@
     <copyright>Copyright (c) 2017-2022 Nir Sofer</copyright>
     <licenseUrl>https://www.nirsoft.net/utils/control_my_monitor.html</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <tags>controlmymonitor monitor vcp ddc di volume brightness contrast gamma input osd power rgb</tags>
+    <tags>controlmymonitor monitor vcp ddc di volume brightness contrast gamma input osd power rgb freeware cli</tags>
     <summary>View and modify the settings of your monitor from command line or GUI</summary>
     <description><![CDATA[
 ---
