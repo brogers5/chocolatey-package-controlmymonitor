@@ -1,23 +1,24 @@
-﻿$ErrorActionPreference = 'Stop'; # stop on all errors
+﻿$ErrorActionPreference = 'Stop'
 
-$packageName = 'controlmymonitor'
-$url = 'https://www.nirsoft.net/utils/controlmymonitor.zip'
-$checksum = 'f740f305e278668e8580ccfc3c458bbb1106cabd223fab31f8680c58cb9bc79c'
-$checksumType = 'SHA256'
-$toolsDir = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
+$toolsDirectory = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
+$archiveFilePath = Join-Path -Path $toolsDirectory -ChildPath 'controlmymonitor.zip'
 
-Install-ChocolateyZipPackage -PackageName "$packageName" `
-                             -Url "$url" `
-                             -UnzipLocation "$toolsDir" `
-                             -Checksum "$checksum" `
-                             -ChecksumType "$checksumType"
+$packageArgs = @{
+  packageName   = $env:ChocolateyPackageName
+  unzipLocation = $toolsDirectory
+  file          = $archiveFilePath
+}
+Get-ChocolateyUnzip @packageArgs
+
+#Clean up ZIP archive post-extraction to prevent unnecessary disk bloat
+Remove-Item -Path $archiveFilePath -Force -ErrorAction SilentlyContinue
 
 $softwareName = 'ControlMyMonitor'
 
 #Create Start Menu shortcut
 $programsDirectory = [Environment]::GetFolderPath([Environment+SpecialFolder]::Programs)
 $shortcutFilePath = Join-Path -Path $programsDirectory -ChildPath "$softwareName.lnk"
-$targetPath = Join-Path -Path $toolsDir -ChildPath 'ControlMyMonitor.exe'
+$targetPath = Join-Path -Path $toolsDirectory -ChildPath 'ControlMyMonitor.exe'
 Install-ChocolateyShortcut -ShortcutFilePath $shortcutFilePath -TargetPath $targetPath -ErrorAction SilentlyContinue
 
 $pp = Get-PackageParameters

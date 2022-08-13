@@ -1,0 +1,32 @@
+﻿VERIFICATION
+Verification is intended to assist the Chocolatey moderators and community
+in verifying that this package's contents are trustworthy.
+
+The packaged ZIP archive is sourced via the project's page on Nir Sofer's website.
+The project's page is located at the following URL:
+https://www.nirsoft.net/utils/control_my_monitor.html
+
+For convenience, the packaged archive was downloaded via the following URL:
+https://www.nirsoft.net/utils/controlmymonitor.zip
+
+Note that the download URL is not versioned and will only serve the latest available
+version. Therefore, this URL will only be a valid source if the latest available
+version and packaged version are one and the same. A newly released version should be
+expected to invalidate a checksum verification when downloading from this URL.
+
+As a workaround, this package's creation process includes the creation of a historical
+snapshot via the Internet Archive's Wayback Machine to create a permanent backup source.
+This snapshot can be accessed at the following URL:
+%snapshotUrl%
+
+The following PowerShell command will print a calculated %checksumType% hash:
+
+    (Get-FileHash controlmymonitor.zip -Algorithm %checksumType%).Hash
+
+This command should be executed against an independently downloaded archive, as well
+as the copy distributed with the package. Both hash values should be identical. A
+matching hash value should confirm that no corruption or tampering has occurred
+during this package's generation process.
+
+For reference, the following %checksumType% hash was calculated during the package's automated creation:
+%checksumValue%
