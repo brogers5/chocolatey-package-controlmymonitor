@@ -22,3 +22,16 @@ Install-ChocolateyShortcut -ShortcutFilePath $shortcutFilePath -TargetPath $targ
 
 Set-Content -Path ("$targetPath.gui") `
             -Value $null
+
+$pp = Get-PackageParameters
+if ($pp.Start)
+{
+  try
+  {
+    Start-Process -FilePath $targetPath -ErrorAction Continue
+  }
+  catch
+  {
+    Write-Warning "$softwareName failed to start, please try to manually start it instead."
+  }
+}
