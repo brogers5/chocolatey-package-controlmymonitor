@@ -20,9 +20,6 @@ $shortcutFilePath = Join-Path -Path $programsDirectory -ChildPath "$softwareName
 $targetPath = Join-Path -Path $toolsDir -ChildPath 'ControlMyMonitor.exe'
 Install-ChocolateyShortcut -ShortcutFilePath $shortcutFilePath -TargetPath $targetPath -ErrorAction SilentlyContinue
 
-Set-Content -Path ("$targetPath.gui") `
-            -Value $null
-
 $pp = Get-PackageParameters
 if ($pp.Start)
 {
