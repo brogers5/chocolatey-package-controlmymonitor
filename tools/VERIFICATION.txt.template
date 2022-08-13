@@ -21,7 +21,7 @@ This snapshot can be accessed at the following URL:
 
 The following PowerShell command will print a calculated %checksumType% hash:
 
-    (Get-FileHash controlmymonitor.zip -Algorithm %checksumType%).Hash
+    (Get-FileHash -Path controlmymonitor.zip -Algorithm %checksumType%).Hash
 
 This command should be executed against an independently downloaded archive, as well
 as the copy distributed with the package. Both hash values should be identical. A
