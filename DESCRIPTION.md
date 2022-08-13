@@ -13,3 +13,10 @@ ControlMyMonitor allows you view and modify the settings of your monitor (Also k
 
 ## Package Parameters
 * `/Start` - Automatically start ControlMyMonitor after installation completes.
+
+## Package Notes
+For future upgrade operations, consider opting into Chocolatey's `useRememberedArgumentsForUpgrades` feature to avoid having to pass the same arguments with each upgrade:
+
+```shell
+choco feature enable -n=useRememberedArgumentsForUpgrades
+```
