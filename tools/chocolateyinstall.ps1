@@ -2,7 +2,7 @@
 
 $packageName = 'controlmymonitor'
 $url = 'https://www.nirsoft.net/utils/controlmymonitor.zip'
-$checksum = 'b81509b058acbe221e0e189565d050354f7a82a4f719872496fd7adf575675dd'
+$checksum = 'f740f305e278668e8580ccfc3c458bbb1106cabd223fab31f8680c58cb9bc79c'
 $checksumType = 'SHA256'
 $toolsDir = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 $installFile = Join-Path $toolsDir "$($packageName).exe"

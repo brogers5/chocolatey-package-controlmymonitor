@@ -3,8 +3,8 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>controlmymonitor</id>
-    <version>1.35</version>
-    <packageSourceUrl>https://github.com/brogers5/chocolatey-package-controlmymonitor/tree/v1.35</packageSourceUrl>
+    <version>1.36</version>
+    <packageSourceUrl>https://github.com/brogers5/chocolatey-package-controlmymonitor/tree/v1.36</packageSourceUrl>
     <owners>sublym0nal</owners>
     <title>ControlMyMonitor</title>
     <authors>Nir Sofer</authors>
@@ -18,7 +18,7 @@
     <description><![CDATA[
 ---
 ### [choco://controlmymonitor](choco://controlmymonitor)
-To use choco:// protocol URLs, install [(unofficial) choco:// Protocol support ](https://chocolatey.org/packages/choco-protocol-support)
+To use choco:// protocol URLs, install [(unofficial) choco:// Protocol support ](https://community.chocolatey.org/packages/choco-protocol-support)
 
 ---
 
