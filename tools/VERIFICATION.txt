@@ -9,24 +9,36 @@ https://www.nirsoft.net/utils/control_my_monitor.html
 For convenience, the packaged archive was downloaded via the following URL:
 https://www.nirsoft.net/utils/controlmymonitor.zip
 
-Note that the download URL is not versioned and will only serve the latest available
-version. Therefore, this URL will only be a valid source if the latest available
-version and packaged version are one and the same. A newly released version should be
-expected to invalidate a checksum verification when downloading from this URL.
+Nir Sofer also publishes official checksums for the packaged archive at the following URL:
+https://www.nirsoft.net/hash_check/?software=controlmymonitor
 
-As a workaround, this package's creation process includes the creation of a historical
-snapshot via the Internet Archive's Wayback Machine to create a permanent backup source.
-This snapshot can be accessed at the following URL:
-https://web.archive.org/web/20220812035211/https://www.nirsoft.net/utils/controlmymonitor.zip
+Note that the download URL is not versioned, and that the checksums page only contains information
+for the latest available version. Therefore, these URLs will only be a valid reference source if
+the latest available version and packaged version are one and the same. A newly released version
+should be expected to invalidate a checksum verification for an older version when using these URLs.
 
-The following PowerShell command will print a calculated SHA256 hash:
+As a workaround, this package's creation process includes the creation of historical snapshots via
+the Internet Archive's Wayback Machine to create a permanent backup source.
+These snapshots can be accessed at the following URLs:
 
-    (Get-FileHash controlmymonitor.zip -Algorithm SHA256).Hash
+Download: https://web.archive.org/web/20220813101120/http://www.nirsoft.net/utils/controlmymonitor.zip
+Checksums: https://web.archive.org/web/20220830063432/https://www.nirsoft.net/hash_check/?software=controlmymonitor
 
-This command should be executed against an independently downloaded archive, as well
-as the copy distributed with the package. Both hash values should be identical. A
-matching hash value should confirm that no corruption or tampering has occurred
-during this package's generation process.
+For convenience, the following checksums were published at the time of this package's creation:
+MD5: ef7ac239c586089bab9aefe40e5dc10c
+SHA1: 41882360a3b267b5fc60830a05cd1d8e1da3e74f
+SHA256: f740f305e278668e8580ccfc3c458bbb1106cabd223fab31f8680c58cb9bc79c
+SHA512: 1f1cd7b477c044a538ae95ea7e29607d5bed172a8b6e6c256adaaa92c8bc156a7f1e8a987fb176ddb392498683dd8d48f6bccf75dd8cd9b1cf8d81981fc36cf5
 
-For reference, the following SHA256 hash was calculated during the package's automated creation:
-F740F305E278668E8580CCFC3C458BBB1106CABD223FAB31F8680C58CB9BC79C
+Note that the MD5 and SHA1 hash algorithms are no longer considered secure by modern standards.
+For tamper protection, it's recommended to validate against either a SHA256 or SHA512 hash instead.
+
+The following PowerShell block will calculate and print a hash for each supported algorithm:
+
+    $hashAlgorithms = @('MD5', 'SHA1', 'SHA256', 'SHA512')
+    $hashAlgorithms | ForEach-Object { (Get-FileHash -Path controlmymonitor.zip -Algorithm $_).Hash.ToLower() }
+
+This block should be executed against an independently downloaded archive, as well as the copy
+distributed with the package. All of the calculated hash values should match the published checksums.
+Matching hash values should confirm that the published checksums are valid, and that no corruption or
+tampering has occurred during this package's generation process.
