@@ -29,7 +29,8 @@ function Add-ArchivedUrls {
     $downloadUrl = "https://web.archive.org/save/$($Latest.Url32)"
     Write-Host "Starting Selenium at $downloadUrl"
     $seleniumDriver = Start-SeFirefox $downloadUrl -Headless
-    $Latest.ArchivedDownloadURL = $seleniumDriver.Url    
+    $Latest.ArchivedDownloadURL = $seleniumDriver.Url
+    $Latest.DirectArchivedDownloadURL = $Latest.ArchivedDownloadURL -replace '(\d{14})/',"`$1if_/"
     $seleniumDriver.Dispose()
 }
 
@@ -83,7 +84,7 @@ function global:au_AfterUpdate ($Package)  {
 function global:au_SearchReplace {
     @{
         'build.ps1' = @{
-            '(^\s*Url32\s*=\s*)(''.*'')' = "`$1'$($Latest.ArchivedDownloadURL)'"
+            '(^\s*Url32\s*=\s*)(''.*'')' = "`$1'$($Latest.DirectArchivedDownloadURL)'"
         }
         "$($Latest.PackageName).nuspec" = @{
             "<packageSourceUrl>[^<]*</packageSourceUrl>" = "<packageSourceUrl>https://github.com/brogers5/chocolatey-package-$($Latest.PackageName)/tree/v$($Latest.Version)</packageSourceUrl>"
