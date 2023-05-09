@@ -14,14 +14,26 @@ Get-ChocolateyUnzip @packageArgs
 Remove-Item -Path $archiveFilePath -Force -ErrorAction SilentlyContinue
 
 $softwareName = 'ControlMyMonitor'
+$binaryFileName = "$softwareName.exe"
 
 #Create Start Menu shortcut
 $programsDirectory = [Environment]::GetFolderPath([Environment+SpecialFolder]::Programs)
 $shortcutFilePath = Join-Path -Path $programsDirectory -ChildPath "$softwareName.lnk"
-$targetPath = Join-Path -Path $toolsDirectory -ChildPath 'ControlMyMonitor.exe'
+$targetPath = Join-Path -Path $toolsDirectory -ChildPath $binaryFileName
 Install-ChocolateyShortcut -ShortcutFilePath $shortcutFilePath -TargetPath $targetPath -ErrorAction SilentlyContinue
 
 $pp = Get-PackageParameters
+if ($pp.NoShim) {
+  #Create shim ignore file
+  $ignoreFilePath = Join-Path -Path $toolsDirectory -ChildPath "$binaryFileName.ignore"
+  Set-Content -Path $ignoreFilePath -Value $null -ErrorAction SilentlyContinue
+}
+else {
+  #Create GUI shim
+  $guiShimPath = Join-Path -Path $toolsDirectory -ChildPath "$binaryFileName.gui"
+  Set-Content -Path $guiShimPath -Value $null -ErrorAction SilentlyContinue
+}
+
 if ($pp.Start) {
   try {
     Start-Process -FilePath $targetPath -ErrorAction Continue
