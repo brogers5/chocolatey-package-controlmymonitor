@@ -3,14 +3,14 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>controlmymonitor</id>
-    <version>1.36</version>
-    <packageSourceUrl>https://github.com/brogers5/chocolatey-package-controlmymonitor/tree/v1.36</packageSourceUrl>
+    <version>1.37</version>
+    <packageSourceUrl>https://github.com/brogers5/chocolatey-package-controlmymonitor/tree/v1.37</packageSourceUrl>
     <owners>sublym0nal</owners>
     <title>ControlMyMonitor</title>
     <authors>Nir Sofer</authors>
     <projectUrl>https://www.nirsoft.net/utils/control_my_monitor.html</projectUrl>
     <iconUrl>https://cdn.jsdelivr.net/gh/brogers5/chocolatey-package-controlmymonitor@f81521a0d30cdfb49cb36166993c94d6d9d50ef1/controlmymonitor.png</iconUrl>
-    <copyright>Copyright (c) 2017-2022 Nir Sofer</copyright>
+    <copyright>Copyright (c) 2017-2023 Nir Sofer</copyright>
     <licenseUrl>https://www.nirsoft.net/utils/control_my_monitor.html</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <tags>controlmymonitor monitor vcp ddc di volume brightness contrast gamma input osd power rgb portable freeware cli</tags>
@@ -30,6 +30,13 @@ ControlMyMonitor allows you view and modify the settings of your monitor (Also k
 
 ## Package Parameters
 * `/Start` - Automatically start ControlMyMonitor after installation completes.
+
+## Package Notes
+For future upgrade operations, consider opting into Chocolatey's `useRememberedArgumentsForUpgrades` feature to avoid having to pass the same arguments with each upgrade:
+
+```shell
+choco feature enable --name="'useRememberedArgumentsForUpgrades'"
+```
 ]]></description>
     <releaseNotes>[Versions History](https://www.nirsoft.net/utils/control_my_monitor.html)</releaseNotes>
   </metadata>
