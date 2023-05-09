@@ -1,7 +1,8 @@
 
 ---
+
 ### [choco://controlmymonitor](choco://controlmymonitor)
-To use choco:// protocol URLs, install [(unofficial) choco:// Protocol support ](https://community.chocolatey.org/packages/choco-protocol-support)
+To use choco:// protocol URLs, install [(unofficial) choco:// Protocol support](https://community.chocolatey.org/packages/choco-protocol-support)
 
 ---
 
@@ -12,9 +13,11 @@ ControlMyMonitor allows you view and modify the settings of your monitor (Also k
 ![ControlMyMonitor Screenshot](https://cdn.jsdelivr.net/gh/brogers5/chocolatey-package-controlmymonitor@00da38d808b41d340e82b0fc10f3be77e6f09309/Screenshot.png)
 
 ## Package Parameters
+
 * `/Start` - Automatically start ControlMyMonitor after installation completes.
 
 ## Package Notes
+
 For future upgrade operations, consider opting into Chocolatey's `useRememberedArgumentsForUpgrades` feature to avoid having to pass the same arguments with each upgrade:
 
 ```shell
