@@ -9,14 +9,12 @@ $userAgent = 'Update checker of Chocolatey Community Package ''controlmymonitor'
 
 function Add-ArchivedUrls {
     $seleniumModuleName = 'Selenium'
-    if (!(Get-Module -ListAvailable -Name $seleniumModuleName))
-    {
+    if (!(Get-Module -ListAvailable -Name $seleniumModuleName)) {
         Install-Module -Name $seleniumModuleName
     }
     Import-Module $seleniumModuleName
 
-    if (!(Test-Path -Path "$env:PROGRAMFILES\Mozilla Firefox\firefox.exe"))
-    {
+    if (!(Test-Path -Path "$env:PROGRAMFILES\Mozilla Firefox\firefox.exe")) {
         choco install firefox -y
     }
 
@@ -30,7 +28,7 @@ function Add-ArchivedUrls {
     Write-Host "Starting Selenium at $downloadUrl"
     $seleniumDriver = Start-SeFirefox $downloadUrl -Headless
     $Latest.ArchivedDownloadURL = $seleniumDriver.Url
-    $Latest.DirectArchivedDownloadURL = $Latest.ArchivedDownloadURL -replace '(\d{14})/',"`$1if_/"
+    $Latest.DirectArchivedDownloadURL = $Latest.ArchivedDownloadURL -replace '(\d{14})/', "`$1if_/"
     $seleniumDriver.Dispose()
 }
 
@@ -45,8 +43,7 @@ function Read-ExpectedChecksums {
 
 function Confirm-Checksum($FilePath, $Algorithm, $ExpectedHash) {
     $hash = (Get-FileHash -Path $FilePath -Algorithm $Algorithm).Hash
-    if ($ExpectedHash -ne $hash)
-    {
+    if ($ExpectedHash -ne $hash) {
         throw "$Algorithm checksum mismatch! Expected '$ExpectedHash', actual is '$hash'"
     }
 }
@@ -72,7 +69,7 @@ function global:au_BeforeUpdate ($Package) {
     Set-DescriptionFromReadme -Package $Package -ReadmePath '.\DESCRIPTION.md'
 }
 
-function global:au_AfterUpdate ($Package)  {
+function global:au_AfterUpdate ($Package) {
     $rawLicense = [Regex]::Matches($response.Content, '<h4 class="utilsubject">License<\/h4>\n((.*\n){1,6})').Groups[1].Value
     $processedLicense = $rawLicense.Replace("`n", "`r`n")
     $rawDisclaimer = [Regex]::Matches($response.Content, '<h4 class="utilsubject">Disclaimer<\/h4>\n((.*\n){1,4})').Groups[1].Value
@@ -83,20 +80,20 @@ function global:au_AfterUpdate ($Package)  {
 
 function global:au_SearchReplace {
     @{
-        'build.ps1' = @{
+        'build.ps1'                     = @{
             '(^\s*Url32\s*=\s*)(''.*'')' = "`$1'$($Latest.DirectArchivedDownloadURL)'"
         }
         "$($Latest.PackageName).nuspec" = @{
             "(<packageSourceUrl>)[^<]*(</packageSourceUrl>)" = "`$1https://github.com/brogers5/chocolatey-package-$($Latest.PackageName)/tree/v$($Latest.Version)`$2"
-            "(<copyright>)[^<]*(</copyright>)" = "`$1Copyright (c) 2017-$(Get-Date -Format yyyy) Nir Sofer`$2"
+            "(<copyright>)[^<]*(</copyright>)"               = "`$1Copyright (c) 2017-$(Get-Date -Format yyyy) Nir Sofer`$2"
         }
-        'tools\VERIFICATION.txt' = @{
-            '%archivedDownloadUrl%' = "$($Latest.ArchivedDownloadURL)"
+        'tools\VERIFICATION.txt'        = @{
+            '%archivedDownloadUrl%'  = "$($Latest.ArchivedDownloadURL)"
             '%archivedChecksumsUrl%' = "$($Latest.ArchivedChecksumsURL)"
-            '%md5Hash%' = "$($Latest.ExpectedChecksumMD5)"
-            '%sha1Hash%' = "$($Latest.ExpectedChecksumSHA1)"
-            '%sha256Hash%' = "$($Latest.ExpectedChecksumSHA256)"
-            '%sha512Hash%' = "$($Latest.ExpectedChecksumSHA512)"
+            '%md5Hash%'              = "$($Latest.ExpectedChecksumMD5)"
+            '%sha1Hash%'             = "$($Latest.ExpectedChecksumSHA1)"
+            '%sha256Hash%'           = "$($Latest.ExpectedChecksumSHA256)"
+            '%sha512Hash%'           = "$($Latest.ExpectedChecksumSHA512)"
         }
     }
 }
@@ -107,7 +104,7 @@ function global:au_GetLatest {
     $version = [Regex]::Matches($response.Content, '<td>ControlMyMonitor v(\d+(\.\d+){1,3})').Groups[1].Value
 
     return @{
-        Url32 = 'https://www.nirsoft.net/utils/controlmymonitor.zip'
+        Url32   = 'https://www.nirsoft.net/utils/controlmymonitor.zip'
         Version = $version
     }
 }

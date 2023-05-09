@@ -22,14 +22,11 @@ $targetPath = Join-Path -Path $toolsDirectory -ChildPath 'ControlMyMonitor.exe'
 Install-ChocolateyShortcut -ShortcutFilePath $shortcutFilePath -TargetPath $targetPath -ErrorAction SilentlyContinue
 
 $pp = Get-PackageParameters
-if ($pp.Start)
-{
-  try
-  {
+if ($pp.Start) {
+  try {
     Start-Process -FilePath $targetPath -ErrorAction Continue
   }
-  catch
-  {
+  catch {
     Write-Warning "$softwareName failed to start, please try to manually start it instead."
   }
 }
