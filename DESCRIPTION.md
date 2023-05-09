@@ -15,6 +15,7 @@ ControlMyMonitor allows you view and modify the settings of your monitor (Also k
 ## Package Parameters
 
 * `/NoShim` - Opt out of creating a GUI shim.
+* `/NoProgramsShortcut` - Opt out of creating a Programs shortcut in your Start Menu.
 * `/Start` - Automatically start ControlMyMonitor after installation completes.
 
 ## Package Notes

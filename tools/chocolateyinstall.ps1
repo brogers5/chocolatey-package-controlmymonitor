@@ -15,12 +15,8 @@ Remove-Item -Path $archiveFilePath -Force -ErrorAction SilentlyContinue
 
 $softwareName = 'ControlMyMonitor'
 $binaryFileName = "$softwareName.exe"
-
-#Create Start Menu shortcut
-$programsDirectory = [Environment]::GetFolderPath([Environment+SpecialFolder]::Programs)
-$shortcutFilePath = Join-Path -Path $programsDirectory -ChildPath "$softwareName.lnk"
+$linkName = "$softwareName.lnk"
 $targetPath = Join-Path -Path $toolsDirectory -ChildPath $binaryFileName
-Install-ChocolateyShortcut -ShortcutFilePath $shortcutFilePath -TargetPath $targetPath -ErrorAction SilentlyContinue
 
 $pp = Get-PackageParameters
 if ($pp.NoShim) {
@@ -32,6 +28,12 @@ else {
   #Create GUI shim
   $guiShimPath = Join-Path -Path $toolsDirectory -ChildPath "$binaryFileName.gui"
   Set-Content -Path $guiShimPath -Value $null -ErrorAction SilentlyContinue
+}
+
+if (!$pp.NoProgramsShortcut) {
+  $programsDirectory = [Environment]::GetFolderPath([Environment+SpecialFolder]::Programs)
+  $shortcutFilePath = Join-Path -Path $programsDirectory -ChildPath $linkName
+  Install-ChocolateyShortcut -ShortcutFilePath $shortcutFilePath -TargetPath $targetPath -ErrorAction SilentlyContinue
 }
 
 if ($pp.Start) {
