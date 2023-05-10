@@ -30,6 +30,12 @@ else {
   Set-Content -Path $guiShimPath -Value $null -ErrorAction SilentlyContinue
 }
 
+if (!$pp.NoDesktopShortcut) {
+  $desktopDirectory = [Environment]::GetFolderPath([Environment+SpecialFolder]::DesktopDirectory)
+  $shortcutFilePath = Join-Path -Path $desktopDirectory -ChildPath $linkName
+  Install-ChocolateyShortcut -ShortcutFilePath $shortcutFilePath -TargetPath $targetPath -ErrorAction SilentlyContinue
+}
+
 if (!$pp.NoProgramsShortcut) {
   $programsDirectory = [Environment]::GetFolderPath([Environment+SpecialFolder]::Programs)
   $shortcutFilePath = Join-Path -Path $programsDirectory -ChildPath $linkName
