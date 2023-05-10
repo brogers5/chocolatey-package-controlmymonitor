@@ -5,16 +5,16 @@
 
 ## Install
 
-[Install Chocolatey](https://chocolatey.org/install), and run the following command to install the latest approved version on the Chocolatey Community Repository:
+[Install Chocolatey](https://chocolatey.org/install), and run the following command to install the latest approved stable version from the Chocolatey Community Repository:
 
 ```shell
-choco install controlmymonitor
+choco install controlmymonitor --source="'https://community.chocolatey.org/api/v2'"
 ```
 
 Alternatively, the packages as published on the Chocolatey Community Repository will also be mirrored on this repository's [Releases page](https://github.com/brogers5/chocolatey-package-controlmymonitor/releases). The `nupkg` can be installed from the current directory as follows:
 
 ```shell
-choco install controlmymonitor -s .
+choco install controlmymonitor --source="'.'"
 ```
 
 ## Build
