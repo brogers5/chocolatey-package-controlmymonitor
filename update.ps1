@@ -49,6 +49,9 @@ function Confirm-Checksum($FilePath, $Algorithm, $ExpectedHash) {
 }
 
 function Confirm-Checksums {
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingBrokenHashAlgorithms', '', Justification = 'We are only validating all of the author-provided checksums, including MD5/SHA1.')]
+    param()
+
     $filePath = Join-Path -Path $toolsPath -ChildPath $Latest.FileName32
 
     Confirm-Checksum -FilePath $filePath -Algorithm 'MD5' -ExpectedHash $Latest.ExpectedChecksumMD5
