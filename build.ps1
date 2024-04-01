@@ -6,7 +6,7 @@ $nuspecFileRelativePath = Join-Path -Path $currentPath -ChildPath 'controlmymoni
 $version = [Version] $nuspec.package.metadata.version
 
 $global:Latest = @{
-    Url32   = 'https://web.archive.org/web/20230509234339if_/https://www.nirsoft.net/utils/controlmymonitor.zip'
+    Url32   = 'https://web.archive.org/web/20240401210053if_/https://www.nirsoft.net/utils/controlmymonitor.zip'
     Version = $version
 }
 

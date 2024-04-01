@@ -3,27 +3,19 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>controlmymonitor</id>
-    <version>1.37</version>
-    <packageSourceUrl>https://github.com/brogers5/chocolatey-package-controlmymonitor/tree/v1.37</packageSourceUrl>
+    <version>1.38.0</version>
+    <packageSourceUrl>https://github.com/brogers5/chocolatey-package-controlmymonitor/tree/v1.38.0</packageSourceUrl>
     <owners>sublym0nal</owners>
     <title>ControlMyMonitor</title>
     <authors>Nir Sofer</authors>
     <projectUrl>https://www.nirsoft.net/utils/control_my_monitor.html</projectUrl>
     <iconUrl>https://cdn.jsdelivr.net/gh/brogers5/chocolatey-package-controlmymonitor@f81521a0d30cdfb49cb36166993c94d6d9d50ef1/controlmymonitor.png</iconUrl>
-    <copyright>Copyright (c) 2017-2023 Nir Sofer</copyright>
+    <copyright>Copyright (c) 2017-2024 Nir Sofer</copyright>
     <licenseUrl>https://www.nirsoft.net/utils/control_my_monitor.html</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <tags>controlmymonitor monitor vcp ddc di volume brightness contrast gamma input osd power rgb portable freeware cli</tags>
     <summary>View and modify the settings of your monitor from command line or GUI</summary>
-    <description><![CDATA[
----
-
-### [choco://controlmymonitor](choco://controlmymonitor)
-To use choco:// protocol URLs, install [(unofficial) choco:// Protocol support](https://community.chocolatey.org/packages/choco-protocol-support)
-
----
-
-## ControlMyMonitor
+    <description><![CDATA[## ControlMyMonitor
 
 ControlMyMonitor allows you view and modify the settings of your monitor (Also known as 'VCP Features'), like brightness, contrast, sharpness, red/green/blue color balance, OSD Language, Input Port (VGA, DVI, HDMI) and more...You can modify the monitor settings from the GUI and from command-line. You can also export all settings of your monitor into a configuration file and then later load the same configuration back into your monitor.
 
