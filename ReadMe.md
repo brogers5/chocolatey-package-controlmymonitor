@@ -19,20 +19,21 @@ choco install controlmymonitor --source="'.'"
 
 ## Build
 
-[Install Chocolatey](https://chocolatey.org/install) and the [Chocolatey Automatic Package Updater Module](https://github.com/majkinetor/au), then clone this repository.
+[Install Chocolatey](https://chocolatey.org/install), and the [Chocolatey Automatic Package Updater Module](https://github.com/majkinetor/au), then clone this repository.
 
 Once cloned, simply run `build.ps1`. The ZIP archive is intentionally untracked to avoid bloating the repository, so the script will download the ControlMyMonitor portable ZIP archive from the mirror created by this package (to ensure reproducibility in case of an older version), then packs everything together.
 
-A successful build will create `controlmymonitor.x.y.nupkg`, where `x.y` should be the Nuspec's `version` value at build time.
+A successful build will create `controlmymonitor.x.y.z.nupkg`, where `x.y.z` should be the Nuspec's normalized `version` value at build time.
 
 >[!Note]
 >As of Chocolatey v2.0.0, `version` values are normalized to contain a [SemVer 2.0.0](https://semver.org/spec/v2.0.0.html)-compliant patch number (i.e. only 2 segments will no longer be honored). Legacy package versions that did not contain these will be padded with a patch number of 0. Going forward, `version` will be padded accordingly for behavior consistency between v1 and v2 Chocolatey releases.
 
-Note that Chocolatey package builds are non-deterministic. Consequently, an independently built package will fail a checksum validation against officially published packages.
+>[!Note]
+>Chocolatey package builds are non-deterministic. Consequently, an independently built package's checksum will not match that of the officially published package.
 
 ## Update
 
-This package should be automatically updated by the [Chocolatey Automatic Package Updater Module](https://github.com/majkinetor/au). If it is outdated by more than a few days, please [open an issue](https://github.com/brogers5/chocolatey-package-controlmymonitor/issues).
+This package should be automatically updated by the [Chocolatey Automatic Package Updater Module](https://github.com/majkinetor/au), with mirroring implemented by the [Selenium PowerShell module](https://github.com/adamdriscoll/selenium-powershell) driving save requests to [the Internet Archive's Wayback Machine](https://web.archive.org/) via [Mozilla Firefox](https://www.mozilla.org/firefox/new/). If it is outdated by more than a few days, please [open an issue](https://github.com/brogers5/chocolatey-package-controlmymonitor/issues).
 
 AU expects the parent directory that contains this repository to share a name with the Nuspec (`controlmymonitor`). Your local repository should therefore be cloned accordingly:
 
@@ -46,6 +47,6 @@ Alternatively, a junction point can be created that points to the local reposito
 mklink /J controlmymonitor ..\chocolatey-package-controlmymonitor
 ```
 
-Once created, simply run `update.ps1` from within the created directory/junction point. Assuming all goes well, all relevant files should change to reflect the latest version available. This will also build a new package version using the modified files.
+Once created, simply run `update.ps1` from within the created directory/junction point. Assuming all goes well, the snapshot(s) will be created/used (if recently created) for the release, and all relevant files should change to reflect the latest version available. This will also build a new package version using the modified files.
 
-Before submitting a pull request, please [test the package](https://docs.chocolatey.org/en-us/community-repository/moderation/package-verifier#steps-for-each-package) using the [Chocolatey Testing Environment](https://github.com/chocolatey-community/chocolatey-test-environment) first.
+Before submitting a pull request, please [test the package](https://docs.chocolatey.org/en-us/community-repository/moderation/package-verifier#steps-for-each-package) using the latest [Chocolatey Testing Environment](https://github.com/chocolatey-community/chocolatey-test-environment) first.
