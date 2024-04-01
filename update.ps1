@@ -108,7 +108,7 @@ function global:au_GetLatest {
 
     return @{
         Url32   = 'https://www.nirsoft.net/utils/controlmymonitor.zip'
-        Version = $version
+        Version = "$version.0"
     }
 }
 

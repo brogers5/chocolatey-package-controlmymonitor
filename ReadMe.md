@@ -25,6 +25,9 @@ Once cloned, simply run `build.ps1`. The ZIP archive is intentionally untracked 
 
 A successful build will create `controlmymonitor.x.y.nupkg`, where `x.y` should be the Nuspec's `version` value at build time.
 
+>[!Note]
+>As of Chocolatey v2.0.0, `version` values are normalized to contain a [SemVer 2.0.0](https://semver.org/spec/v2.0.0.html)-compliant patch number (i.e. only 2 segments will no longer be honored). Legacy package versions that did not contain these will be padded with a patch number of 0. Going forward, `version` will be padded accordingly for behavior consistency between v1 and v2 Chocolatey releases.
+
 Note that Chocolatey package builds are non-deterministic. Consequently, an independently built package will fail a checksum validation against officially published packages.
 
 ## Update
