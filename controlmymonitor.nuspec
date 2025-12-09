@@ -3,14 +3,14 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>controlmymonitor</id>
-    <version>1.38.0</version>
-    <packageSourceUrl>https://github.com/brogers5/chocolatey-package-controlmymonitor/tree/v1.38.0</packageSourceUrl>
+    <version>1.40.0</version>
+    <packageSourceUrl>https://github.com/brogers5/chocolatey-package-controlmymonitor/tree/v1.40.0</packageSourceUrl>
     <owners>sublym0nal</owners>
     <title>ControlMyMonitor</title>
     <authors>Nir Sofer</authors>
     <projectUrl>https://www.nirsoft.net/utils/control_my_monitor.html</projectUrl>
     <iconUrl>https://cdn.jsdelivr.net/gh/brogers5/chocolatey-package-controlmymonitor@f81521a0d30cdfb49cb36166993c94d6d9d50ef1/controlmymonitor.png</iconUrl>
-    <copyright>Copyright (c) 2017-2024 Nir Sofer</copyright>
+    <copyright>Copyright (c) 2017-2025 Nir Sofer</copyright>
     <licenseUrl>https://www.nirsoft.net/utils/control_my_monitor.html</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <tags>controlmymonitor monitor vcp ddc di volume brightness contrast gamma input osd power rgb portable freeware cli</tags>
