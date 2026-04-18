@@ -21,14 +21,14 @@ As a workaround, this package's creation process includes the creation of histor
 the Internet Archive's Wayback Machine to create a permanent backup source.
 These snapshots can be accessed at the following URLs:
 
-Download: https://web.archive.org/web/20251006060149/https://www.nirsoft.net/utils/controlmymonitor.zip
-Checksums: https://web.archive.org/web/20251209182506/https://www.nirsoft.net/hash_check/?software=controlmymonitor
+Download: https://web.archive.org/web/20260418173849/https://www.nirsoft.net/utils/controlmymonitor.zip
+Checksums: https://web.archive.org/web/20260418173707/https://www.nirsoft.net/hash_check/?software=controlmymonitor
 
 For convenience, the following checksums were published at the time of this package's creation:
-MD5: 6d09cc0eddb0ae65dbd07f8a5e020b5f
-SHA1: 0ea62a1ba29d532c93d0b3cac3fa0504fd9b4cea
-SHA256: ea2713ff51f494c6a8f16b3dd8315ab73761f619a811c87a520d067e2c13528e
-SHA512: b1198633307fd1e2ea72351f19becf20945439ad58034eac0344f8c2d0ca811419d72120fa579003800d6af653c671f1f0b844481f7687e8108079a5880885c2
+MD5: b3d196ee03f8dd918fe1ee2e45ecf8de
+SHA1: 46c192f626434a3d7a202fa6848ed5edb799137a
+SHA256: 40ed729804414d8adb6500a7ad3a1ee160604da2323274b81701667b32726868
+SHA512: cad18cff7ada9a03378a3888716abb6db4b54e5a4b45afdda450c2d2ea246d84a8459b2826153e64116c193a8ce2bbfd83ac6414a6070726fbe98960be45061b
 
 Note that the MD5 and SHA1 hash algorithms are no longer considered secure by modern standards.
 For tamper protection, it's recommended to validate against either a SHA256 or SHA512 hash instead.
